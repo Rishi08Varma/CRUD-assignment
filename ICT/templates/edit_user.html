@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Edit User</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                value="{{ user.username }}"
+                required
+            >
+        </div>
+        <div class="form-group mt-3">
+            <label for="password">New Password</label>
+            <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+            >
+        </div>
+        <div class="form-group mt-3">
+            <label for="confirm_password">Confirm New Password</label>
+            <input
+                type="password"
+                class="form-control"
+                id="confirm_password"
+                name="confirm_password"
+            >
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Save Changes</button>
+        <a href="{{ url_for('admin') }}" class="btn btn-secondary mt-4">Cancel</a>
+    </form>
+</div>
+{% endblock %}

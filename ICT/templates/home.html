@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid" style="height: 100vh; background-image: url('https://via.placeholder.com/1600x900'); background-size: cover; background-position: center;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh; background-color: rgba(0, 0, 0, 0.5);">
+        <div class="text-center text-white">
+            <h1 class="display-4">Welcome to Our Website</h1>
+            <p class="lead">Some Lorem Ipsum text here about what we do.</p>
+            <form method="POST" action="{{ url_for('coming_soon') }}">
+                <button type="submit" class="btn btn-primary btn-lg">Coming Soon</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
