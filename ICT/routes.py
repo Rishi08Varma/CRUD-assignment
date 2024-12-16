@@ -1,5 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from ICT import app, db
+from ICT import bcrypt
 from ICT.models import User, Item
 from ICT.forms import RegistrationForm, LoginForm, ItemForm
 from flask_login import login_user, current_user, logout_user, login_required
@@ -18,6 +19,7 @@ def signup():
     
     form = RegistrationForm()
     if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
         # Check if the username already exists
         existing_user = User.query.filter_by(username=form.username.data).first()
         if existing_user:
